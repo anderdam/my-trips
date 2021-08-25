@@ -12,11 +12,5 @@ export default function AboutPage() {
 }
 
 export const getStaticProps = async () => {
-  const { pages } = await client.request(GET_PAGES)
-
-  console.log(pages)
-
-  return {
-    props: {}
-  }
+  client.request(GET_PAGES)
 }

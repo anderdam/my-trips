@@ -4,7 +4,6 @@
 // getInitialProps -> serve para buscar os dados das páginas em runtime - toda requisição (bundle também vem para o client) - hydrate
 
 import client from 'graphql/client'
-import { GET_PAGES } from 'graphql/queries'
 import AboutTemplate from 'templates/About'
 
 export default function AboutPage() {
@@ -12,11 +11,8 @@ export default function AboutPage() {
 }
 
 export const getStaticProps = async () => {
-  const { pages } = await client.request(GET_PAGES)
-
-  console.log(pages)
-
-  return {
-    props: {}
-  }
+  client.request()
 }
+
+
+
