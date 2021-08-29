@@ -30,16 +30,11 @@ export default function PlacesTemplate({ place }: PlacesTemplateProps) {
         <S.Container>
           <S.Heading>{place.name}</S.Heading>
 
-          <S.Body
-            dangerouslySetInnerHTML={{ __html: place.description.html }}
-          />
+          <S.Body dangerouslySetInnerHTML={{ __html: place.description.html }} />
 
-          <S.Gallery>
-            {place.gallery.map((image, index) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img key={`photo-${index}`} src={image.url} alt={place.name} />
-            ))}
-          </S.Gallery>
+          {place.gallery.map((image, index) => (
+            <img key={`photo-${index}`} src={image.url} alt={place.name} />
+          ))}
         </S.Container>
       </S.Wrapper>
     </>

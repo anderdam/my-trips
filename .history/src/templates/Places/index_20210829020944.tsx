@@ -36,7 +36,6 @@ export default function PlacesTemplate({ place }: PlacesTemplateProps) {
 
           <S.Gallery>
             {place.gallery.map((image, index) => (
-              // eslint-disable-next-line @next/next/no-img-element
               <img key={`photo-${index}`} src={image.url} alt={place.name} />
             ))}
           </S.Gallery>

@@ -26,22 +26,14 @@ export default function PlacesTemplate({ place }: PlacesTemplateProps) {
         <CloseOutline size="24" aria-label="Go back to map" />
       </LinkWrapper>
 
-      <S.Wrapper>
-        <S.Container>
-          <S.Heading>{place.name}</S.Heading>
+      <S.Wrapper></S.Wrapper>
+      <h1>{place.name}</h1>
 
-          <S.Body
-            dangerouslySetInnerHTML={{ __html: place.description.html }}
-          />
+      <div dangerouslySetInnerHTML={{ __html: place.description.html }} />
 
-          <S.Gallery>
-            {place.gallery.map((image, index) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img key={`photo-${index}`} src={image.url} alt={place.name} />
-            ))}
-          </S.Gallery>
-        </S.Container>
-      </S.Wrapper>
+      {place.gallery.map((image, index) => (
+        <img key={`photo-${index}`} src={image.url} alt={place.name} />
+      ))}
     </>
   )
 }
