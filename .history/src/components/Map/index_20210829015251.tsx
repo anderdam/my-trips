@@ -1,4 +1,3 @@
-import { useRouter } from 'next/dist/client/router'
 import { MapContainer, TileLayer, Marker } from 'react-leaflet'
 
 type Place = {
@@ -38,7 +37,7 @@ const Map = ({ places }: MapProps) => {
             title={name}
             eventHandlers={{
               click: () => {
-                router.push(`/place/${slug}`)
+                console.log(slug)
               }
             }}
           />
