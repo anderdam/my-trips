@@ -14,7 +14,7 @@ export type PlacesTemplateProps = {
   place: {
     slug: string
     name: string
-    description?: {
+    description: {
       html: string
     }
     gallery: ImageProps[]
@@ -25,7 +25,6 @@ export default function PlacesTemplate({ place }: PlacesTemplateProps) {
   const router = useRouter()
 
   if (router.isFallback) return null
-
   return (
     <>
       <LinkWrapper href="/">
@@ -37,7 +36,7 @@ export default function PlacesTemplate({ place }: PlacesTemplateProps) {
           <S.Heading>{place.name}</S.Heading>
 
           <S.Body
-            dangerouslySetInnerHTML={{ __html: place.description?.html || ' ' }}
+            dangerouslySetInnerHTML={{ __html: place.description.html }}
           />
 
           <S.Gallery>

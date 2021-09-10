@@ -37,7 +37,7 @@ export default function PlacesTemplate({ place }: PlacesTemplateProps) {
           <S.Heading>{place.name}</S.Heading>
 
           <S.Body
-            dangerouslySetInnerHTML={{ __html: place.description?.html || ' ' }}
+            dangerouslySetInnerHTML={{ __html: place.description?.html }}
           />
 
           <S.Gallery>

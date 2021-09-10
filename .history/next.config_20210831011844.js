@@ -8,7 +8,9 @@ module.exports = withPWA({
     disable: !isProd
   },
   reactStrictMode: true,
-  images: {
-    domains: ['media.graphcms.com']
+  module.exports = {
+    images: {
+      domains: ['example.com'],
+    },
   }
 })

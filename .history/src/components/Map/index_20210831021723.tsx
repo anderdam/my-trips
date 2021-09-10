@@ -22,18 +22,15 @@ const MAPBOX_STYLEID = process.env.NEXT_PUBLIC_MAPBOX_STYLEID
 const CustomTileLayer = () => {
   return MAPBOX_API_KEY ? (
     <TileLayer
-      attribution='© <a href="https://apps.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-      url={`https://api.mapbox.com/styles/v1/${MAPBOX_USERID}/${MAPBOX_STYLEID}?fresh=true&title=view&access_token=${MAPBOX_API_KEY}/tiles/256/{z}/{x}/{y}@2x`}
-
-      // https://api.mapbox.com/styles/v1/anderdam/ckszlrpu01gmz17o3ubyigtht.html?fresh=true&title=view&access_token=pk.eyJ1IjoiYW5kZXJkYW0iLCJhIjoiY2tzemwyYWFlMHRiazMycnJhbnhqdm8wMiJ9.soLbNuhJHyhia1goYHpSgw
-    />
-  ) : (
-    <TileLayer
-      attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-    />
-  )
+        attribution=''
+      />
+  ) : (<TileLayer
+    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  />)
 }
+
+
 
 const Map = ({ places }: MapProps) => {
   const router = useRouter()
@@ -44,8 +41,10 @@ const Map = ({ places }: MapProps) => {
       zoom={3}
       style={{ height: '100%', width: '100%' }}
     >
-      <CustomTileLayer />
-
+      <TileLayer
+        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
       {places?.map(({ id, slug, name, location }) => {
         const { latitude, longitude } = location
 

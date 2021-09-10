@@ -45,6 +45,6 @@ export const Gallery = styled.div`
       100% {
         background-position: 40rem 0;
       }
-    }
   }
+
 `
